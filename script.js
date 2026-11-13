@@ -1,7 +1,10 @@
 /**
- * PixelZone - Lógica de interfaz, validación y preparación para Supabase
+ * PixelZone - Lógica de interfaz, validación y envío a Google Sheets
  * Archivo 100% JavaScript nativo (sin librerías ni servidores requeridos).
  */
+
+// URL oficial de tu aplicación web en Google Apps Script
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyUJILOLvJLRr5azHXAO5w8K6hqGHbsClEhvoZbxTDhDT1jAKdgyl9B1vySYo2u-uzoJg/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   // ================= 1. MENÚ RESPONSIVE EN MÓVILES =================
@@ -68,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Llamar a la función preparada para futura integración con Supabase
+      // Enviar solicitud a Google Sheets
       await enviarSolicitud(datosSolicitud);
     });
   }
@@ -135,7 +138,7 @@ function validarFormulario(datos) {
 /**
  * Muestra alertas visuales debajo del formulario.
  * @param {string} mensaje - Texto a mostrar.
- * @param {"demo" | "error"} tipo - Estilo de alerta.
+ * @param {"exito" | "error"} tipo - Estilo de alerta.
  */
 function mostrarMensajeFeedback(mensaje, tipo) {
   const feedbackEl = document.getElementById("formFeedback");
@@ -147,22 +150,44 @@ function mostrarMensajeFeedback(mensaje, tipo) {
 }
 
 /**
- * ============================================================================
- * FUNCIÓN PREPARADA PARA CONEXIÓN FUTURA CON SUPABASE
- * ============================================================================
- * Actualmente opera en modo demostración local sin base de datos conectada.
- * Cuando integres Supabase, podrás importar el cliente e insertar `datos` en
- * tu tabla (por ejemplo: `supabase.from('solicitudes_soporte').insert([datos])`).
- *
- * @param {Object} datos - Payload validado listo para enviarse a Supabase.
+ * Envía los datos validados del formulario directamente a Google Sheets.
+ * @param {Object} datos - Objeto con la información del soporte técnico.
  */
 async function enviarSolicitud(datos) {
-  // Inspección en consola para verificar la estructura lista para Supabase
-  console.info("[PixelZone - Modo Demostración] Payload validado para Supabase:", datos);
+  const btnSubmit = document.querySelector(".btn-submit");
+  const textoOriginal = btnSubmit.textContent;
 
-  // Mensaje explícito de demostración sin afirmar que los datos fueron guardados
-  mostrarMensajeFeedback(
-    `Modo demostración activo: los datos de "${datos.nombre_completo}" (${datos.tipo_equipo}) pasaron la validación correctamente. Aún no hay conexión con Supabase, por lo que esta solicitud no se ha guardado en ninguna base de datos.`,
-    "demo"
-  );
+  try {
+    // Deshabilitar botón temporalmente para evitar envíos duplicados
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = "Enviando solicitud...";
+
+    // Enviar datos mediante POST a Google Apps Script
+    await fetch(GOOGLE_SHEETS_URL, {
+      method: "POST",
+      mode: "no-cors", // Evita restricciones CORS del navegador con Google Scripts
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify(datos),
+    });
+
+    // Limpiar el formulario y mostrar mensaje de éxito en verde
+    document.getElementById("soporteForm").reset();
+    mostrarMensajeFeedback(
+      `¡Gracias, ${datos.nombre_completo}! Tu solicitud de soporte para "${datos.tipo_equipo}" se ha registrado correctamente en nuestra base de datos.`,
+      "exito"
+    );
+
+  } catch (error) {
+    console.error("Error al enviar los datos:", error);
+    mostrarMensajeFeedback(
+      "Ocurrió un error de red al intentar registrar tu solicitud. Por favor, inténtalo de nuevo.",
+      "error"
+    );
+  } finally {
+    // Restaurar el botón original
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = textoOriginal;
+  }
 }

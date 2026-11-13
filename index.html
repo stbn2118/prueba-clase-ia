@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PixelZone - Tienda de periféricos gamer y soporte técnico especializado." />
+  <title>PixelZone | Periféricos de Alto Rendimiento y Soporte Técnico</title>
+  <!-- Enlace a la hoja de estilos local -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================= ENCABEZADO Y NAVEGACIÓN ================= -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#inicio" class="logo" aria-label="Inicio PixelZone">
+        <span class="logo-bracket">&lt;</span>Pixel<span class="logo-accent">Zone</span><span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Botón hamburguesa para pantallas móviles -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
+          <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+          <li><a href="#nosotros" class="nav-link">Sobre PixelZone</a></li>
+          <li><a href="#soporte" class="nav-link nav-cta">Soporte Técnico</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= PORTADA PRINCIPAL (HERO) ================= -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="badge">Hardware &amp; Precisión Competitiva</span>
+          <h1>Equipa tu estación con periféricos de <span class="text-accent">siguiente nivel</span></h1>
+          <p>
+            Descubre nuestra selección curada de periféricos diseñados para respuesta instantánea, 
+            ergonomía prolongada y durabilidad extrema. Además, contamos con diagnóstico y soporte 
+            técnico especializado para tu equipo.
+          </p>
+          <div class="hero-actions">
+            <a href="#catalogo" class="btn btn-primary">Ver productos</a>
+            <a href="#soporte" class="btn btn-outline">Solicitar soporte</a>
+          </div>
+        </div>
+
+        <!-- Elemento visual decorativo hecho 100% con CSS -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="tech-card">
+            <div class="tech-card-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="tech-title">SYSTEM_STATUS // PZ-2026</span>
+            </div>
+            <div class="tech-card-body">
+              <div class="stat-row">
+                <span>Tasa de sondeo</span>
+                <strong class="text-accent">8000 Hz</strong>
+              </div>
+              <div class="stat-row">
+                <span>Latencia de respuesta</span>
+                <strong class="text-accent">0.12 ms</strong>
+              </div>
+              <div class="stat-row">
+                <span>Soporte activo</span>
+                <strong class="status-online">● Disponible</strong>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CATÁLOGO DE PRODUCTOS ================= -->
+    <section id="catalogo" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Equipamiento</span>
+          <h2>Catálogo de Periféricos</h2>
+          <p>Selecciona cualquier producto para consultar disponibilidad o asesoría técnica directa.</p>
+        </div>
+
+        <div class="catalog-grid">
+          <!-- Tarjeta 1: Mouse Gamer -->
+          <article class="product-card">
+            <div class="product-visual" aria-hidden="true">
+              <span class="product-category">Mouse Gamer</span>
+              <!-- Icono vectorial SVG inline para evitar dependencias externas -->
+              <svg viewBox="0 0 24 24" class="product-icon" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="6" y="3" width="12" height="18" rx="6" />
+                <line x1="12" y1="7" x2="12" y2="11" />
+              </svg>
+            </div>
+            <div class="product-body">
+              <h3>Mouse Gamer Vortex X1 Pro</h3>
+              <p>Sensor óptico de 26.000 DPI, peso ultraligero de 54 g, switches ópticos y conexión inalámbrica de baja latencia.</p>
+              <div class="product-footer">
+                <span class="price">$249.900 COP</span>
+                <button type="button" class="btn btn-card btn-consultar" data-producto="Mouse Gamer Vortex X1 Pro">
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2: Teclado Mecánico -->
+          <article class="product-card">
+            <div class="product-visual" aria-hidden="true">
+              <span class="product-category">Teclado Mecánico</span>
+              <svg viewBox="0 0 24 24" class="product-icon" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h.01M18 14h.01M9 14h6" />
+              </svg>
+            </div>
+            <div class="product-body">
+              <h3>Teclado Mecánico K-Strike TKL</h3>
+              <p>Formato compacto 80%, switches lineales lubricados de fábrica, chasis en aluminio cepillado e iluminación RGB por tecla.</p>
+              <div class="product-footer">
+                <span class="price">$389.000 COP</span>
+                <button type="button" class="btn btn-card btn-consultar" data-producto="Teclado Mecánico K-Strike TKL">
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3: Audífonos -->
+          <article class="product-card">
+            <div class="product-visual" aria-hidden="true">
+              <span class="product-category">Audífonos</span>
+              <svg viewBox="0 0 24 24" class="product-icon" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+              </svg>
+            </div>
+            <div class="product-body">
+              <h3>Audífonos Pulse 7.1 Surround</h3>
+              <p>Drivers de neodimio de 50 mm, almohadillas viscoelásticas transpirables y micrófono cardioide desmontable con cancelación de ruido.</p>
+              <div class="product-footer">
+                <span class="price">$319.500 COP</span>
+                <button type="button" class="btn btn-card btn-consultar" data-producto="Audífonos Pulse 7.1 Surround">
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 4: Monitor -->
+          <article class="product-card">
+            <div class="product-visual" aria-hidden="true">
+              <span class="product-category">Monitor</span>
+              <svg viewBox="0 0 24 24" class="product-icon" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <div class="product-body">
+              <h3>Monitor Horizon 27" QHD 180Hz</h3>
+              <p>Panel Fast IPS de 27 pulgadas, resolución 2560x1440, tiempo de respuesta 1 ms GTG y compatibilidad Adaptive Sync.</p>
+              <div class="product-footer">
+                <span class="price">$1.290.000 COP</span>
+                <button type="button" class="btn btn-card btn-consultar" data-producto="Monitor Horizon 27 QHD 180Hz">
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 5: Mousepad -->
+          <article class="product-card">
+            <div class="product-visual" aria-hidden="true">
+              <span class="product-category">Mousepad</span>
+              <svg viewBox="0 0 24 24" class="product-icon" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="2" y="5" width="20" height="14" rx="3" />
+                <circle cx="17" cy="14" r="2" />
+              </svg>
+            </div>
+            <div class="product-body">
+              <h3>Mousepad DeskMat Control XL</h3>
+              <p>Superficie microtejida híbrida de 900x400 mm, grosor de 4 mm, bordes cosidos de perfil bajo y base de caucho antideslizante.</p>
+              <div class="product-footer">
+                <span class="price">$89.900 COP</span>
+                <button type="button" class="btn btn-card btn-consultar" data-producto="Mousepad DeskMat Control XL">
+                  Consultar
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE PIXELZONE ================= -->
+    <section id="nosotros" class="section section-alt">
+      <div class="container about-grid">
+        <div class="about-content">
+          <span class="section-tag">Nuestra Identidad</span>
+          <h2>Sobre PixelZone</h2>
+          <p>
+            <strong>PixelZone</strong> nació como un proyecto ficticio dedicado a entusiastas del hardware, 
+            jugadores competitivos y creadores digitales que buscan periféricos confiables sin especificaciones infladas.
+          </p>
+          <p>
+            Combinamos la venta asesorada de periféricos con un laboratorio de soporte técnico preventivo y correctivo, 
+            ayudando a optimizar el rendimiento, la limpieza y la vida útil de cada estación de trabajo.
+          </p>
+        </div>
+
+        <div class="about-features">
+          <div class="feature-box">
+            <h3>Asesoría Honesta</h3>
+            <p>Recomendamos componentes acordes a tu presupuesto real y tipo de uso diario.</p>
+          </div>
+          <div class="feature-box">
+            <h3>Diagnóstico Claro</h3>
+            <p>Evaluación transparente de fallas en periféricos, temperaturas y rendimiento de sistema.</p>
+          </div>
+          <div class="feature-box">
+            <h3>Garantía Local</h3>
+            <p>Respaldo directo en cada referencia del catálogo y seguimiento personalizado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FORMULARIO DE SOPORTE TÉCNICO ================= -->
+    <section id="soporte" class="section">
+      <div class="container support-wrapper">
+        <div class="section-header">
+          <span class="section-tag">Asistencia Especializada</span>
+          <h2>Solicitar soporte técnico</h2>
+          <p>Completa los datos de tu equipo y describe el inconveniente. Todos los campos marcados con * son obligatorios.</p>
+        </div>
+
+        <form id="soporteForm" class="support-form" novalidate>
+          <div class="form-row">
+            <!-- Campo 1: Nombre completo -->
+            <div class="form-group">
+              <label for="nombreCompleto">Nombre completo *</label>
+              <input
+                type="text"
+                id="nombreCompleto"
+                name="nombreCompleto"
+                placeholder="Ej. Camila Andrea Torres"
+                required
+                minlength="3"
+              />
+              <small class="error-msg" id="errorNombre"></small>
+            </div>
+
+            <!-- Campo 2: Teléfono -->
+            <div class="form-group">
+              <label for="telefono">Teléfono *</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="Ej. 310 555 0192"
+                required
+              />
+              <small class="error-msg" id="errorTelefono"></small>
+            </div>
+          </div>
+
+          <!-- Campo 3: Tipo de equipo -->
+          <div class="form-group">
+            <label for="tipoEquipo">Tipo de equipo *</label>
+            <select id="tipoEquipo" name="tipoEquipo" required>
+              <option value="" disabled selected>Selecciona una opción...</option>
+              <option value="PC Gamer">PC Gamer</option>
+              <option value="Laptop / Notebook">Laptop / Notebook</option>
+              <option value="PC de Escritorio">PC de Escritorio</option>
+              <option value="Otro">Otro</option>
+            </select>
+            <small class="error-msg" id="errorEquipo"></small>
+          </div>
+
+          <!-- Campo 4: Descripción del problema -->
+          <div class="form-group">
+            <label for="descripcionProblema">Descripción del problema *</label>
+            <textarea
+              id="descripcionProblema"
+              name="descripcionProblema"
+              rows="4"
+              placeholder="Describe detalladamente la falla, consulta sobre periféricos o mantenimiento requerido..."
+              required
+              minlength="10"
+            ></textarea>
+            <small class="error-msg" id="errorDescripcion"></small>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">
+            Enviar solicitud de soporte
+          </button>
+
+          <!-- Contenedor para mensajes de validación o modo demostración -->
+          <div id="formFeedback" class="form-feedback" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= PIE DE PÁGINA ================= -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="logo"><span class="logo-bracket">&lt;</span>Pixel<span class="logo-accent">Zone</span><span class="logo-bracket">/&gt;</span></span>
+        <p>Periféricos de precisión y soporte técnico especializado.</p>
+      </div>
+      <div class="footer-info">
+        <p>Horario ficticio: Lunes a Sábado, 9:00 a. m. – 6:00 p. m.</p>
+        <p>&copy; 2026 PixelZone Hardware Store. Sitio web de demostración.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Enlace al archivo JavaScript local -->
+  <script src="script.js"></script>
+</body>
+</html>
